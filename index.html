@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Cache-Control" content="no-cache">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="mobile-web-app-capable" content="yes">
+
+        <link rel="apple-touch-icon" href="logo.png">
+        <link rel="icon" href="logo.png">
+
+        <title>Splash - paint with liquid light</title>
+        <meta name="description" content="Splash is a fluid playground in your browser. Drag to paint with liquid light.">
+
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="Splash - paint with liquid light">
+        <meta property="og:description" content="A fluid playground in your browser. Drag to paint with liquid light.">
+        <meta property="og:url" content="https://mtg9t4.github.io/splash/">
+        <meta property="og:image" content="https://mtg9t4.github.io/splash/logo.png">
+
+        <script type="text/javascript" src="dat.gui.min.js"></script>
+        <style>
+            * {
+                user-select: none;
+            }
+
+            html, body {
+                overflow: hidden;
+                background-color: #000;
+            }
+
+            body {
+                margin: 0;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+            }
+
+            canvas {
+                width: 100%;
+                height: 100%;
+                display: block;
+            }
+
+            .dg {
+                opacity: 0.92;
+            }
+
+            .dg .property-name {
+                overflow: visible;
+            }
+
+            .hint {
+                position: absolute;
+                top: 18px;
+                left: 50%;
+                transform: translateX(-50%);
+                padding: 10px 22px;
+                border-radius: 999px;
+                background: rgba(10, 10, 18, 0.55);
+                border: 1px solid rgba(255, 255, 255, 0.14);
+                color: #f2f2f7;
+                font-size: 14px;
+                letter-spacing: 0.04em;
+                pointer-events: none;
+                z-index: 5;
+                transition: opacity 1.2s ease;
+                white-space: nowrap;
+            }
+
+            .hint b {
+                font-weight: 700;
+                letter-spacing: 0.22em;
+                margin-right: 10px;
+            }
+
+            .hint.hidden {
+                opacity: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas></canvas>
+        <div class="hint" id="hint"><b>SPLASH</b>drag to paint &middot; press space for a burst</div>
+        <script src="./script.js"></script>
+        <script>
+            setTimeout(function () {
+                document.getElementById('hint').classList.add('hidden');
+            }, 6000);
+        </script>
+    </body>
+</html>
