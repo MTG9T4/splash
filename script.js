@@ -1627,7 +1627,7 @@ function normalizeColor (input) {
 function wrap (value, min, max) {
     let range = max - min;
     if (range == 0) return min;
-    return (value - min) % range + min;
+    return ((value - min) % range + range) % range + min;
 }
 
 function getResolution (resolution) {
